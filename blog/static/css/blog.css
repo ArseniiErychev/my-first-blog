@@ -6,7 +6,7 @@ a {
   color: #FCA205;
   font-weight: bold;
   font-size: 20px;
-
+  padding-left: 20px;
 }
 .NavContainer {
   position: fixed;
