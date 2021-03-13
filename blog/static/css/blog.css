@@ -1,5 +1,10 @@
 a {
   text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+  color: black;
 }
 
 .brand {
@@ -29,8 +34,8 @@ a {
 }
 .main {
   padding-top: 70px;
-  padding-left: 20vw;
-  padding-right: 20vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
   font-size: 18px;
 }
 .published-date {
@@ -39,12 +44,23 @@ a {
   color: gray;
   font-size: 15px;
 }
-.haddings {
+.headdings {
   padding-left: 5px;
   font-size: 25px;
   font-weight: bold;
-  color: black;
 }
-.haddings:hover {
-  color: black;
+
+.headding-block {
+  width: 100%;
+  display: inline-flex;
+}
+.edit {
+  padding-left: 80%;
+
+}
+.main-detail {
+  padding-top: 10%;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  font-size: 18px;
 }
