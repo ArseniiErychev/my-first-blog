@@ -11,7 +11,7 @@ a:hover {
   color: #FCA205;
   font-weight: bold;
   font-size: 20px;
-  padding-left: 20px;
+  margin-left: 20px;
 }
 .NavContainer {
   position: fixed;
@@ -55,7 +55,10 @@ a:hover {
   display: inline-flex;
 }
 .edit {
-  padding-left: 80%;
+  position: absolute;
+  right: 10vw;
+  display: inline-flex;
+  margin-right: 0px;
 
 }
 .main-detail {
@@ -63,4 +66,73 @@ a:hover {
   padding-left: 10vw;
   padding-right: 10vw;
   font-size: 18px;
+}
+.btn-signup {
+  background-color: #FCA205;
+  border-color: #FCA205;
+  border-radius: 30px;
+  color: white;
+  margin-left: 5px;
+  margin-top: 6px;
+}
+.btn-signup:hover {
+  background-color: #ffcb70;
+  border-color: #ffcb70;
+  color: white;
+}
+
+
+.btn-signup:active {
+  background-color: #FCA205;
+  border-color: #FCA205;
+  color: white;
+}
+
+.btn-rounded {
+  background-color: white;
+  border-color: #FCA205;
+  border-radius: 30px;
+  color: #FCA205;
+  margin-left: 5px;
+  margin-top: 6px;
+
+
+}
+.btn-rounded:hover,
+.btn-rounded:active {
+  background-color: #FCA205;
+  border-color: #FCA205;
+  color: white;
+}
+
+.search-area {
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-top: 5px;
+}
+.new {
+  margin-top: 10%;
+}
+.new-post {
+  padding-left: 5px;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.new-post-form {
+  border: 3px solid #FCA205;
+  padding: 15px;
+  margin: auto;
+  width: 300px;
+  height: 350px;
+  margin-top: 18%;
+}
+.form-control {
+  border-radius: 20px;
+}
+.regbtn {
+  position: relative;
+  left: 46%;
+  transform: translate(-50%, 0);
 }

@@ -3,18 +3,18 @@
   <div class="main-detail">
       <div class="posts">
         <div class="headding-block">
-        <h1 class="headdings">{{post.title}}</h1>
-        {% if user.is_authenticated %}
-          <div class="edit">
-            <a href="{% url 'post_edit' pk=post.pk %}" class="nav-link active"><i class="fa fa-edit"></i></a>
-          </div>
-        {% endif %}
+          <div class="headdings">{{post.title}}</div>
+          {% if user.is_authenticated %}
+            <div class="edit">
+              <a href="{% url 'post_edit' pk=post.pk %}" class="nav-link active"><i class="fa fa-edit"></i></a>
+              <a href="{% url 'post_delete' pk=post.pk %}" class="nav-link active"><i class="fa fa-trash-alt"></i></a>
+            </div>
+          {% endif %}
         </div>
         <p class="text">{{post.text|linebreaksbr}}</p>
         {% if post.published_date %}
           <p class="published-date">{{post.published_date}}</p>
         {% endif %}
-
       </div>
   </div>
 {% endblock %}
