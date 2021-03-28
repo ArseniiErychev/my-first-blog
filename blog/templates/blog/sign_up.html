@@ -17,13 +17,18 @@
 </head>
 
 <body>
-  <div class="new-post-form">
+  <div class="sign-up-form">
     <form method="POST" class="signup-form">
       {% csrf_token %}
       {% for field in form %}
       {{field}}<br>
       {% endfor %}
+      {% if form.password1.errors %}<div class="password-error">{{ form.password1.errors }}</div>{% endif %}
+      {% if form.password2.errors %}<div class="password-error">{{ form.password2.errors }}</div>{% endif %}
       <button type="submit" class="btn-rounded btn btn-default regbtn">Зарегистрироваться</button>
+      {% for message in messages %}
+      <p class="info">{{message}}</p>
+      {% endfor %}
     </form>
   </div>
 </body>

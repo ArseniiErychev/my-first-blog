@@ -26,6 +26,11 @@ a:hover {
   color: #FCA205;
 }
 
+.navbar {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 #navbarSupportedContent {
   padding-left: 20px;
 }
@@ -62,7 +67,7 @@ a:hover {
 
 }
 .main-detail {
-  padding-top: 10%;
+  padding-top: 100px;
   padding-left: 10vw;
   padding-right: 10vw;
   font-size: 18px;
@@ -121,18 +126,66 @@ a:hover {
   text-align: center;
 }
 .new-post-form {
-  border: 3px solid #FCA205;
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+.sign-up-form {
+  border: 1px solid #ced4da;
+  border-radius: 10px;
   padding: 15px;
   margin: auto;
-  width: 300px;
-  height: 350px;
+  width: 400px;
   margin-top: 18%;
 }
 .form-control {
   border-radius: 20px;
 }
+
 .regbtn {
   position: relative;
   left: 46%;
   transform: translate(-50%, 0);
 }
+.error {
+  margin-top: 15px;
+  font-size: 15px;
+  padding: 5px;
+  color: #f03434;
+  border: 1px solid #f03434;
+  border-radius: 20px;
+  text-align: center;
+}
+.success {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 15px;
+  padding: 5px;
+  background-color: white;
+  color: green;
+  border: 1px solid green;
+  border-radius: 20px;
+}
+.icon {
+  font-size: 35px;
+  margin-top: 7px;
+  color: #BCBEC0;
+}
+.nav-auth {
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+.sign-modal {
+  margin-top: 200px;
+  max-width: 350px;
+}
+.password-error {
+  color: #f03434;
+}
+li {
+    list-style-type: none; /* Убираем маркеры */
+    margin-bottom: 10px;
+   }
+ul {
+    margin-left: 15px; /* Отступ слева в браузере IE и Opera */
+    padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+   }

@@ -5,10 +5,23 @@ from .forms import PostForm
 from .forms import SignUp
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+
 
 # Create your views here.
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+        else:
+            messages.error(request, 'Пароль или логин был заполнен неправильно')
+            return redirect('/sign_in')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
@@ -53,5 +66,24 @@ def sign_up(request):
         form = SignUp(request.POST)
         if form.is_valid():
             form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Wellcome to the club, ' + user)
+            return redirect('/sign_in')
+    return render(request, 'blog/sign_up.html', {'form':form})
+
+def sign_in(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
             return redirect('/')
-    return render(request, 'blog/sign_up.html', {'form': form})
+        else:
+            messages.error(request, 'Пароль или логин был заполнен неправильно')
+
+    return render(request, 'blog/sign_in.html')
+
+def logoutUser(request):
+    logout(request)
+    return redirect('/')

@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <script src="https://kit.fontawesome.com/c3813c7699.js" crossorigin="anonymous"></script>
+  
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <!-- JavaScript Bundle with Popper -->
@@ -27,21 +28,29 @@
       </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+          {% if user.is_anonymous %}
+              <li class="nav-item">
+                <a class="nav-link active"><button type="button" class="btn btn-secondary btn-rounded" data-toggle="modal" data-target="#SignIn" name="sign_in">Войти</button></a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'sign_up' %}" class="nav-link active"><button type="button" class="btn btn-secondary btn-signup" name="sign_up">Зарегистрироваться</button></a>
+              </li>
+          {% endif %}
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <div class="nav-auth"><i class="fas fa-user-circle icon"></i> </div>
+            </li>
+            <li class="nav-item">
+              <div class="nav-auth"><a href="{% url 'logoutUser' %}"><button class="btn btn-secondary btn-signup" name="LogoutUser">Выйти</button></div>
+            </li>
+          {% endif %}
           {% if user.is_superuser %}
             <li class="nav-item">
 
               <a  href="{% url 'post_new' %}"><button type="button" class="btn btn-secondary btn-rounded">Новый пост</button></a>
             </li>
-
-          {% else %}
-            <li class="nav-item">
-              <a class="nav-link active" href="/admin"><button type="button" class="btn btn-secondary btn-rounded">Войти</button></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="{% url 'sign_up' %}"><button type="button" class="btn btn-secondary btn-signup">Зарегистрироваться</button></a>
-            </li>
           {% endif %}
+
         </ul>
         <form class="d-flex">
           <input class="form-control me-2 search-area" type="search" placeholder="Поиск..." aria-label="Search">
@@ -52,7 +61,46 @@
   </nav>
   </div>
 
+  <!-- Модальное окно -->
+  <div class="modal fade rounded" id="flipFlop" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog sign-modal" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <form method="POST" class="signup-form" name="sign-up-form">
+            {% csrf_token %}
+            {% for field in form %}
+            {{field}}<br>
+            {% endfor %}
+            <button type="submit" class="btn-rounded btn btn-default regbtn">Зарегистрироваться</button>
+          </form>
+
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade rounded" id="SignIn" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog sign-modal" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <form method="POST" class="signup-form">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Введите  логин" class="form-control"><br>
+            <input type="password" name="password" placeholder="Введите  пароль" class="form-control"><br>
+            <button type="submit" class="btn-rounded btn btn-default regbtn">Войти</button>
+          </form>
+
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 {% block content %}
+
 {% endblock %}
 
 </body>
