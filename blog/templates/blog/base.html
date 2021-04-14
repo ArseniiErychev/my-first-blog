@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <script src="https://kit.fontawesome.com/c3813c7699.js" crossorigin="anonymous"></script>
-  
+
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <!-- JavaScript Bundle with Popper -->
@@ -61,31 +61,14 @@
   </nav>
   </div>
 
-  <!-- Модальное окно -->
-  <div class="modal fade rounded" id="flipFlop" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog sign-modal" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-
-          <form method="POST" class="signup-form" name="sign-up-form">
-            {% csrf_token %}
-            {% for field in form %}
-            {{field}}<br>
-            {% endfor %}
-            <button type="submit" class="btn-rounded btn btn-default regbtn">Зарегистрироваться</button>
-          </form>
-
-      </div>
-      </div>
-    </div>
-  </div>
-
   <div class="modal fade rounded" id="SignIn" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog sign-modal" role="document">
       <div class="modal-content">
         <div class="modal-body">
-
-          <form method="POST" class="signup-form">
+          <form method="POST" class="sign-up-form">
+            <div class="headdings form-headding">
+              Вход
+            </div>
             {% csrf_token %}
             <input type="text" name="username" placeholder="Введите  логин" class="form-control"><br>
             <input type="password" name="password" placeholder="Введите  пароль" class="form-control"><br>

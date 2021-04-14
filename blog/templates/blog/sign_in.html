@@ -19,6 +19,9 @@
 <body>
   <div class="sign-up-form">
     <form method="POST" class="signup-form">
+      <div class="headdings form-headding">
+        Вход
+      </div>
       {% csrf_token %}
       <input type="text" name="username" placeholder="Введите  логин" class="form-control"><br>
       <input type="password" name="password" placeholder="Введите  пароль" class="form-control"><br>
