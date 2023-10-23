@@ -9,7 +9,6 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
 
-# Create your views here.
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     if request.method == 'POST':
